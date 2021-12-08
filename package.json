@@ -36,6 +36,8 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react-hooks": "^4.3.0",
+    "graphql": "^16.1.0",
+    "graphql-request": "^3.7.0",
     "jest": "^27.4.3",
     "jest-styled-components": "^7.0.8",
     "leaflet": "^1.7.1",
