@@ -1,10 +1,16 @@
+import LinkWrapper from 'components/LinkWrapper'
 import dynamic from 'next/dynamic'
-
-// @styled-icons/octicons/Info
-// @styled-icons/octicons/x-circle
+import { Info } from '@styled-icons/octicons'
 
 const Map = dynamic(() => import('components/Map'), { ssr: false })
 
 export default function Home() {
-  return <Map places={[]} />
+  return (
+    <>
+      <LinkWrapper href="/about">
+        <Info size={32} aria-label="About" />
+      </LinkWrapper>
+      <Map places={[]} />
+    </>
+  )
 }
