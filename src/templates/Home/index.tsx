@@ -9,7 +9,7 @@ export default function HomeTemplate({ places }: MapProps) {
   return (
     <>
       <LinkWrapper href="/about">
-        <Info size={32} aria-label="About" />
+        <Info size={64} aria-label="About" />
       </LinkWrapper>
       <Map places={places} />
     </>

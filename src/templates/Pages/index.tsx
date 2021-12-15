@@ -11,7 +11,7 @@ export type PageTemplateProps = {
 const PageTemplate = ({ heading, body }: PageTemplateProps) => (
   <S.Content>
     <LinkWrapper href="/">
-      <XCircle size={32} aria-label="Close" />
+      <XCircle size={64} aria-label="Close" />
     </LinkWrapper>
     <S.Heading>{heading}</S.Heading>
     <S.Body>
