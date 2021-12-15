@@ -3,16 +3,21 @@ import { XCircle } from '@styled-icons/octicons'
 
 import * as S from './styles'
 
-const AboutTemplate = () => (
+export type PageTemplateProps = {
+  heading: string
+  body: string
+}
+
+const PageTemplate = ({ heading, body }: PageTemplateProps) => (
   <S.Content>
     <LinkWrapper href="/">
       <XCircle size={32} aria-label="Close" />
     </LinkWrapper>
-    <S.Heading>My Trips</S.Heading>
+    <S.Heading>{heading}</S.Heading>
     <S.Body>
-      <p>Hihihi viajar é legal</p>
+      <div dangerouslySetInnerHTML={{ __html: body }} />
     </S.Body>
   </S.Content>
 )
 
-export default AboutTemplate
+export default PageTemplate

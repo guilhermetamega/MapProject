@@ -31,6 +31,11 @@ const Map = ({ places }: MapProps) => (
           key={`place-${id}`}
           position={[latitude, longitude]}
           title={name}
+          eventHandlers={{
+            click: () => {
+              console.log('hi')
+            }
+          }}
         >
           <Popup>Lugar bunito</Popup>
         </Marker>
