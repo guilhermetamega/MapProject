@@ -2,6 +2,9 @@ import { AppProps } from 'next/app'
 import Head from 'next/head'
 import NextNProgress from 'nextjs-progressbar'
 
+import SEO from '../../next-seo.config.js'
+import { DefaultSeo } from 'next-seo'
+
 import GlobalStyles from 'styles/global'
 
 function App({ Component, pageProps }: AppProps) {
@@ -12,8 +15,6 @@ function App({ Component, pageProps }: AppProps) {
         <link rel="shortcut icon" href="/img/icone-512.png" />
         <link rel="apple-touch-icon" href="/img/icone-512.png" />
         <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#06092B" />
-        <meta name="description" content="A simple project with Next" />
         <link
           rel="stylesheet"
           href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
@@ -21,6 +22,7 @@ function App({ Component, pageProps }: AppProps) {
           crossOrigin=""
         />
       </Head>
+      <DefaultSeo {...SEO} />
       <GlobalStyles />
       <NextNProgress
         color="#023047"

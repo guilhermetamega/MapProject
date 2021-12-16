@@ -1,3 +1,4 @@
+import { NextSeo } from 'next-seo'
 import Image from 'next/image'
 
 import LinkWrapper from 'components/LinkWrapper'
@@ -18,6 +19,7 @@ export type PlaceTemplateProps = {
     name: string
     description: {
       html: string
+      text: string
     }
     gallery: ImageProps[]
   }
@@ -30,6 +32,24 @@ export default function PlacesTemplate({ place }: PlaceTemplateProps) {
 
   return (
     <>
+      <NextSeo
+        title={`${place.name} - Meus Lugares`}
+        description={place.description?.text || ''}
+        canonical="https://meuslugares.com"
+        openGraph={{
+          url: 'https://meuslugares.com',
+          title: `${place.name} - Meus Lugares`,
+          description: place.description?.text || '',
+          images: [
+            {
+              url: place.gallery[0].url,
+              width: place.gallery[0].width,
+              height: place.gallery[0].height,
+              alt: `${place.name}`
+            }
+          ]
+        }}
+      />
       <LinkWrapper href="/">
         <XCircle size={64} aria-label="Close" />
       </LinkWrapper>
