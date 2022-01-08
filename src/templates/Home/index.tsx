@@ -11,22 +11,22 @@ export default function HomeTemplate({ places }: MapProps) {
   return (
     <>
       <NextSeo
-        title="Meus Lugares"
+        title="Wonders of the Wolrd"
         description="Lugares lugares"
-        canonical="https://local.guitamega.com.br"
+        canonical="https://www.allwondersworld.com"
         openGraph={{
-          url: 'https://meuslugares.com',
-          title: 'Meus lugares',
+          url: 'https://www.allwondersworld.com',
+          title: 'Wonders of the Wolrd',
           description: 'Um simples site de aprendizado de mapas',
           images: [
             {
-              url: 'https://meuslugares.com/img/cover.png',
+              url: 'https://www.allwondersworld.com/img/cover.png',
               width: 1280,
               height: 720,
-              alt: 'Meus Lugares'
+              alt: 'Wonders of the Wolrd'
             }
           ],
-          site_name: 'Meus Lugares'
+          site_name: 'Wonders of the Wolrd'
         }}
       />
       <LinkWrapper href="/about">

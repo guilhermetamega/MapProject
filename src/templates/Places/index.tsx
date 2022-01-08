@@ -1,11 +1,12 @@
+import { XCircle } from '@styled-icons/octicons'
+
 import { NextSeo } from 'next-seo'
 import Image from 'next/image'
 
 import LinkWrapper from 'components/LinkWrapper'
-import { XCircle } from '@styled-icons/octicons'
 
 import * as S from './styles'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/dist/client/router'
 
 type ImageProps = {
   url: string
@@ -13,11 +14,11 @@ type ImageProps = {
   width: number
 }
 
-export type PlaceTemplateProps = {
+export type PlacesTemplateProps = {
   place: {
     slug: string
     name: string
-    description: {
+    description?: {
       html: string
       text: string
     }
@@ -25,7 +26,7 @@ export type PlaceTemplateProps = {
   }
 }
 
-export default function PlacesTemplate({ place }: PlaceTemplateProps) {
+export default function PlacesTemplate({ place }: PlacesTemplateProps) {
   const router = useRouter()
 
   if (router.isFallback) return null
@@ -33,13 +34,16 @@ export default function PlacesTemplate({ place }: PlaceTemplateProps) {
   return (
     <>
       <NextSeo
-        title={`${place.name} - Meus Lugares`}
-        description={place.description?.text || ''}
-        canonical="https://meuslugares.com"
+        title={`${place.name} - Wonders of the Wolrd`}
+        description={
+          place.description?.text || 'Site about the wonders of the world.'
+        }
+        canonical="https://allwondersworld.com"
         openGraph={{
-          url: 'https://meuslugares.com',
-          title: `${place.name} - Meus Lugares`,
-          description: place.description?.text || '',
+          url: 'https://allwondersworld.com',
+          title: `${place.name} - Wonders of the Wolrd`,
+          description:
+            place.description?.text || 'Site about the wonders of the world.',
           images: [
             {
               url: place.gallery[0].url,
@@ -51,8 +55,9 @@ export default function PlacesTemplate({ place }: PlaceTemplateProps) {
         }}
       />
       <LinkWrapper href="/">
-        <XCircle size={64} aria-label="Close" />
+        <XCircle size={64} aria-label="Go back to map" />
       </LinkWrapper>
+
       <S.Wrapper>
         <S.Container>
           <S.Heading>{place.name}</S.Heading>
@@ -67,9 +72,10 @@ export default function PlacesTemplate({ place }: PlaceTemplateProps) {
                 key={`photo-${index}`}
                 src={image.url}
                 alt={place.name}
-                width={1000}
-                height={600}
+                width={image.width}
+                height={image.height}
                 quality={100}
+                layout="responsive"
               />
             ))}
           </S.Gallery>
